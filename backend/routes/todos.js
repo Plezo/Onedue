@@ -27,7 +27,7 @@ router.post('/', function(req, res, next) {
 router.delete('/:id', function(req, res, next) {
   Todo.destroy({
     where: {
-      list_id: req.params.id
+      todo_id: req.params.id
     }
   })
     .then(() => res.status(200).json("Deleted a todo!"))
@@ -37,6 +37,12 @@ router.delete('/:id', function(req, res, next) {
 // edit todo by id
 router.put('/:id', ash(async(req, res) => {
   await Todo.update(req.body, { where: {id: req.params.id} });
+  let todo = await Todo.findByPk(req.params.id, {include: [List, User]});
+  res.status(201).json(todo);
+}));
+
+router.patch('/:id', ash(async(req, res) => {
+  await Todo.update(req.body, { where: {todo_id: req.params.id} });
   let todo = await Todo.findByPk(req.params.id, {include: [List, User]});
   res.status(201).json(todo);
 }));

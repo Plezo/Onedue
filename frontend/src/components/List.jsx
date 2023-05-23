@@ -10,7 +10,6 @@ export default function List() {
     const $todos = useStore(todos);
 
     useEffect(() => {
-        // seedTodos();
         getAllTodos();
     }, []);
 
@@ -35,7 +34,7 @@ export default function List() {
 
             <ul>
                 {$todos.map((todo, index) => 
-                    <Todo key={index} index={index} todo={todo}/>
+                    <Todo key={index} todo={todo}/>
                 )}
             </ul>
         </div>
