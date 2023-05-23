@@ -1,0 +1,111 @@
+---
+import { Icon } from 'astro-icon'
+---
+
+<div class='sidebar'>
+    <ul>
+        <li>
+            <Icon name="carbon:list"/>
+            <p>Inbox</p>
+        </li>
+        <li>
+            <Icon name="carbon:list"/>
+            <p>Today</p>
+        </li>
+        <li>
+            <Icon name="carbon:list"/>
+            <p>Upcoming</p>
+        </li>
+
+        <li class='separator'>
+            <h1>Lists</h1>
+            <Icon name="carbon:add"/>
+        </li>
+    
+        <li>
+            <Icon name="carbon:list"/>
+            <p>Groceries</p>
+        </li>
+        <li>
+            <Icon name="carbon:list"/>
+            <p>To-do app</p>
+        </li>
+        <li>
+            <Icon name="carbon:list"/>
+            <p>Homework</p>
+        </li>
+    </ul>
+</div>
+
+<style>
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        color: white;
+        font-size: 1rem;
+        margin: 0.75rem 1rem 0rem 1rem;
+        padding: 0.5rem;
+        border-radius: 1rem;
+    }
+
+    li:hover {
+        background-color: #fffefe20;
+    }
+
+    li:active {
+        background-color: #fffefe10;
+    }
+
+    li:hover.separator {
+        background-color: #1D1D1D;
+    }
+
+    li:active.separator {
+        background-color: #1D1D1D;
+    }
+
+    li.separator {
+        justify-content: space-between;
+        
+        margin-top: 2rem;
+    }
+    
+    li.separator > h1 {
+        color: rgb(255, 255, 255, .75);
+        font-size: 1rem;
+    }
+
+    li.separator > svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: #fffefe75;
+    }
+
+    li.separator > svg:hover {
+        color: white;
+    }
+
+    li.separator > svg:active {
+        color: #fffefe60;
+    }
+
+    .sidebar {
+        background-color: #1D1D1D;
+        margin: 0 1rem 0 1rem;
+        padding-top: 2rem;
+
+        height: 100%;
+        width: 60%;
+
+        border-right: 0.05rem solid white;
+    }
+
+</style>
