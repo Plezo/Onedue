@@ -1,5 +1,6 @@
 ---
-import Sidebar from '../components/Sidebar.astro';
+// import Sidebar from '../components/Sidebar.astro';
+import Sidebar from '../components/Sidebar.jsx';
 
 export interface Props {
 	title: string;
@@ -18,7 +19,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class='mainContainer'>
-		<Sidebar class='column'/>
+		<Sidebar client:load/>
 		<slot />
 	</body>
 </html>

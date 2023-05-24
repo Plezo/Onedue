@@ -11,7 +11,7 @@ const Todo = db.define('todo', {
 
     list_id: {
         type: Sequelize.UUID,
-        allowNull: false
+        allowNull: true
     },
 
     user_id: {
