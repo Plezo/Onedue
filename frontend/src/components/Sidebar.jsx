@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useStore } from '@nanostores/react';
 import { Icon } from '@iconify/react';
-import { getAllLists, addList, updateCurrent, lists, currentList } from '../store/listStore';
+import { getAllLists, addList, updateCurrent, lists, currentList } from '../store/todoStore';
 
 export default function Sidebar() {
 
@@ -15,12 +15,6 @@ export default function Sidebar() {
     // Add some modal or a popup asking for the name
     const handleAddList = (e) => {
 
-    }
-
-    const handleListClick = (e, list) => {
-        updateCurrent(list);
-
-        e.preventDefault();
     }
 
     return (
@@ -45,7 +39,7 @@ export default function Sidebar() {
 
                 {$lists.map((list) => 
                     <li key={list.list_id}>
-                        <button onClick={(e) => handleListClick(e, list)}>
+                        <button onClick={() => updateCurrent(list)}>
                             <p>{list.list_name}</p>
                             <Icon name="carbon:add"/>
                         </button>

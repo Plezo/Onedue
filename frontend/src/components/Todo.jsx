@@ -5,15 +5,9 @@ import { Icon } from '@iconify/react';
 export default function Todo({ todo }) {
     const [completed, setCompleted] = useState(todo.completed);
 
-    const handleComplete = (e) => {
-        flipCompleteTodo(todo);
-        setCompleted(!completed);
-
-        e.preventDefault();
-    }
-
-    const handleDelete = (e) => {
-        removeTodo(todo);
+    const handleComplete = async (e) => {
+        todo = await flipCompleteTodo(todo);
+        setCompleted(todo.completed);
 
         e.preventDefault();
     }
@@ -27,24 +21,21 @@ export default function Todo({ todo }) {
         hover:bg-slate-500 active:bg-slate-400
         '>
             <div className='flex items-center gap-2'>
-            { completed ?
                 <button onClick={handleComplete}>
-                    <Icon 
-                    icon='carbon:checkbox-checked'
-                    className='text-blue-400'
-                    />
-                </button>
-                    : 
-                    <button onClick={handleComplete}>
+                    { completed ?
+                        <Icon 
+                        icon='carbon:checkbox-checked'
+                        className='text-blue-400'
+                        /> :
                         <Icon 
                         icon="carbon:checkbox"
                         className="text-blue-400"
                         />
-                    </button>
-                }
+                    }
+                </button>
                 <p>{todo.name}</p>
             </div>
-            <button onClick={handleDelete}>
+            <button onClick={() => removeTodo(todo)}>
                 <Icon 
                 icon='carbon:close'
                 className='text-blue-400'
