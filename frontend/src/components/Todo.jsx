@@ -12,6 +12,12 @@ export default function Todo({ todo }) {
         e.preventDefault();
     }
 
+    const handleDelete = async (e) => {
+        await removeTodo(todo);
+
+        e.preventDefault();
+    }
+
     return (
         <li
         className='
@@ -35,7 +41,7 @@ export default function Todo({ todo }) {
                 </button>
                 <p>{todo.name}</p>
             </div>
-            <button onClick={() => removeTodo(todo)}>
+            <button onClick={handleDelete}>
                 <Icon 
                 icon='carbon:close'
                 className='text-blue-400'

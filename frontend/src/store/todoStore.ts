@@ -1,4 +1,5 @@
-import { atom } from 'nanostores';
+import { atom, onMount, task } from 'nanostores';
+import { persistentAtom } from '@nanostores/persistent'
 import axios, { AxiosResponse } from 'axios';
 
 interface Todo {
@@ -27,20 +28,55 @@ interface List {
     todos: Todo[];
 }
 
-export const lists = atom<List[]>([]);
-export const currentList = atom<List>({
+export const lists = persistentAtom<List[]>('lists', [], {
+    encode: JSON.stringify,
+    decode: JSON.parse,
+});
+
+export const currentList = persistentAtom<List>('currentList', {
     list_id: "",
     user_id: "",
     list_name: "",
     todos: []
+}, { encode: JSON.stringify, decode: JSON.parse });
+
+export const currentTodos = persistentAtom<Todo[]>('currentTodos', [], 
+    { encode: JSON.stringify, decode:JSON.parse });
+
+onMount(lists, () => {
+    task(async () => {
+        lists.set(await getAllLists());
+        console.log(lists.get())
+    })
 });
 
-export const currentTodos = atom<Todo[]>([]);
+onMount(currentList, () => {
+    task(async () => {
+
+        // Figure out how to get first thing in lists arr
+        currentList.set({
+            list_id: "",
+            user_id: "",
+            list_name: "",
+            todos: []
+        });
+
+        console.log(currentList.get())
+    })
+})
+
+onMount(currentTodos, () => {
+    task(async () => {
+        currentTodos.set([]);
+        console.log(currentTodos.get())
+    })
+})
 
 /* 
  *  HELPER FUNCTIONS
  */
 export function updateCurrent(list: List) {
+    console.log(list);
     currentList.set(list);
     currentTodos.set(list.todos);
 }
@@ -67,11 +103,12 @@ export async function getAllLists(): Promise<List[]> {
     try {
         const res: AxiosResponse<List[]> = await axios.get(url);
 
-        if (currentList.get().list_id === "") {
+        if (currentList.get().list_id === "" && res.data.length > 0) {
             currentList.set(res.data[0]);
             currentTodos.set(res.data[0].todos);
-            lists.set(res.data);
         }
+
+        lists.set(res.data);
 
         return res.data;
     } catch (err) {
@@ -91,7 +128,10 @@ export async function addList(listName: string): Promise<List> {
     try {
         const res: AxiosResponse<List> = await axios.post(url, list);
 
-        lists.set([...lists.get(), res.data]);
+        let newList: List = res.data;
+        newList.todos = [];
+
+        lists.set([...lists.get(), newList]);
 
         return res.data;
     } catch (err) {
@@ -122,7 +162,7 @@ export async function removeList(list: List): Promise<List> {
  *  API CALLS FOR TODOS
  */
 export async function getAllTodos(): Promise<Todo[]> {
-    const url = 'http://localhost:5001/api/todos';
+    const url = `http://localhost:5001/api/todos/${currentList.get().list_id}`;
 
     try {
         const res: AxiosResponse<Todo[]> = await axios.get(url);
@@ -160,6 +200,7 @@ export async function removeTodo(todo: Todo): Promise<Todo> {
         const res: AxiosResponse<Todo> = await axios.delete(url)
 
         currentList.get().todos = currentTodos.get().filter((i) => i.todo_id !== todo.todo_id);
+        console.log(currentList.get());
         updateClient(currentList.get());
 
         return res.data;

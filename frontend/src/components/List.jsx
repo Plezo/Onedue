@@ -11,22 +11,21 @@ export default function List() {
     const $currentList = useStore(currentList);
     const $currentTodos = useStore(currentTodos);
 
-    const handleAddTodo = (e) => {
+    const handleAddTodo = async (e) => {
         const todo = {
             list_id: $currentList.list_id,
             user_id: 'e3402a58-496e-4b5d-82a3-7481c0790dca',
             name: newTodoName,
         }
 
-        addTodo(todo);
+        await addTodo(todo);
 
         setNewTodoName('');
         e.preventDefault();
     }
 
     return (
-        <div
-        className='flex flex-col text-white gap-4 mt-8'>
+        <div className='flex flex-col text-white gap-4 mt-8'>
             <h1 className='text-4xl'>{$currentList.list_name}</h1>
             <form onSubmit={handleAddTodo}>
                 <input
@@ -37,11 +36,15 @@ export default function List() {
                 onChange={(e) => setNewTodoName(e.target.value)} />
             </form>
 
-            <ul>
-                {$currentTodos.map((todo) =>
-                    <Todo key={todo.todo_id} todo={todo}/>
-                )}
-            </ul>
+            {
+                $currentTodos.length === 0 ? 
+                <p>No todos</p> :
+                <ul>
+                    {$currentTodos.map((todo) =>
+                        <Todo key={todo.todo_id} todo={todo}/>
+                    )}
+                </ul>
+            }
         </div>
     )
 }

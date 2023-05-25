@@ -11,9 +11,15 @@ router.get('/', ash(async(req, res) => {
 }));
 
 // get todo by id
+// router.get('/:id', ash(async(req, res) => {
+//   let todo = await Todo.findByPk(req.params.id, {include: [List, User]});
+//   res.status(200).json(todo);
+// }));
+
+// get todo by list id
 router.get('/:id', ash(async(req, res) => {
-  let todo = await Todo.findByPk(req.params.id, {include: [List, User]})
-  res.status(200).json(todo);
+  let todos = await Todo.findAll({ where: {list_id: req.params.id} });
+  res.status(200).json(todos);
 }));
 
 // new todo
