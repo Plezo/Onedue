@@ -2,7 +2,7 @@ import { atom, onMount, task } from 'nanostores';
 import { persistentAtom } from '@nanostores/persistent'
 import axios, { AxiosResponse } from 'axios';
 
-interface Todo {
+export type Todo = {
     todo_id: string;
     list_id?: string;
     user_id: string;
@@ -12,7 +12,7 @@ interface Todo {
 	completed?: boolean;
 }
 
-interface NewTodo {
+export type NewTodo = {
     list_id?: string;
     user_id: string;
     name: string;
@@ -21,12 +21,16 @@ interface NewTodo {
 	completed?: boolean;
 }
 
-interface List {
+export type List = {
     list_id: string;
     user_id: string;
     list_name: string;
     todos: Todo[];
 }
+
+export type LoadingStateValue = 'empty' | 'loading' | 'loaded'
+
+export const loadingState = atom<LoadingStateValue>('empty')
 
 export const lists = persistentAtom<List[]>('lists', [], {
     encode: JSON.stringify,
@@ -45,32 +49,30 @@ export const currentTodos = persistentAtom<Todo[]>('currentTodos', [],
 
 onMount(lists, () => {
     task(async () => {
-        lists.set(await getAllLists());
-        console.log(lists.get())
+        loadingState.set('loading');
+        const allLists = await getAllLists();
+        lists.set(allLists);
+
+        if (allLists.length === 0) {
+            currentList.set({
+                list_id: "",
+                user_id: "",
+                list_name: "",
+                todos: []
+            });
+            currentTodos.set([]);
+        } else {
+            currentList.set(allLists[0]);
+            currentTodos.set(allLists[0].todos);
+        }
+
+        console.log(lists.get());
+        console.log(currentList.get());
+        console.log(currentTodos.get());
+
+        loadingState.set('loaded');
     })
 });
-
-onMount(currentList, () => {
-    task(async () => {
-
-        // Figure out how to get first thing in lists arr
-        currentList.set({
-            list_id: "",
-            user_id: "",
-            list_name: "",
-            todos: []
-        });
-
-        console.log(currentList.get())
-    })
-})
-
-onMount(currentTodos, () => {
-    task(async () => {
-        currentTodos.set([]);
-        console.log(currentTodos.get())
-    })
-})
 
 /* 
  *  HELPER FUNCTIONS
@@ -102,11 +104,6 @@ export async function getAllLists(): Promise<List[]> {
 
     try {
         const res: AxiosResponse<List[]> = await axios.get(url);
-
-        if (currentList.get().list_id === "" && res.data.length > 0) {
-            currentList.set(res.data[0]);
-            currentTodos.set(res.data[0].todos);
-        }
 
         lists.set(res.data);
 

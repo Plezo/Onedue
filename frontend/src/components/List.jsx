@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useStore } from '@nanostores/react';
 import Todo from './Todo.jsx';
 
-import { currentList, currentTodos, addTodo } from '../store/todoStore';
+import { currentList, currentTodos, addTodo, loadingState } from '../store/todoStore';
 
 export default function List() {
 
@@ -10,6 +10,7 @@ export default function List() {
 
     const $currentList = useStore(currentList);
     const $currentTodos = useStore(currentTodos);
+    const $loadingState = useStore(loadingState);
 
     const handleAddTodo = async (e) => {
         const todo = {
@@ -23,6 +24,9 @@ export default function List() {
         setNewTodoName('');
         e.preventDefault();
     }
+
+    if ($loadingState !== 'loaded')
+        return <p>LOADING!</p>;
 
     return (
         <div className='flex flex-col text-white gap-4 mt-8'>

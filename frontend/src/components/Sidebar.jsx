@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useStore } from '@nanostores/react';
 import { Icon } from '@iconify/react';
-import { getAllLists, addList, updateCurrent, lists, currentList } from '../store/todoStore';
+import { getAllLists, addList, updateCurrent, lists, currentList, loadingState } from '../store/todoStore';
 
 export default function Sidebar() {
 
     const $lists = useStore(lists);
     const $currentList = useStore(currentList);
+    const $loadingState = useStore(loadingState);
 
     // Add some modal or a popup asking for the name
     const handleAddList = async (e) => {
@@ -21,6 +22,9 @@ export default function Sidebar() {
 
         e.preventDefault();
     }
+
+    if ($loadingState !== 'loaded')
+        return <p>LOADING!</p>;
 
     return (
         <div className='
