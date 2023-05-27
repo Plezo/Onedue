@@ -30,7 +30,7 @@ router.delete('/:id', function(req, res, next) {
       list_id: req.params.id
     }
   })
-    .then(() => res.status(200).json("Deleted a list!"))
+    .then(() => res.status(200))
     .catch(err => next(err));
 });
 
