@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useStore } from '@nanostores/react';
 import { Icon } from '@iconify/react';
-import { getAllLists, addList, updateCurrent, lists, currentList, loadingState } from '../store/todoStore';
+import { addList, updateCurrent, lists, currentList, loadingState } from '../store/todoStore';
 
 export default function Sidebar() {
 
@@ -17,14 +17,13 @@ export default function Sidebar() {
     }
 
     const handleUpdateCurrent = async (e, list) => {
-
         await updateCurrent(list);
 
         e.preventDefault();
     }
 
     if ($loadingState !== 'loaded')
-        return <p>LOADING!</p>;
+        return <div>LOADING!</div>;
 
     return (
         <div className='

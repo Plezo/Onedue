@@ -48,12 +48,13 @@ export const currentTodos = persistentAtom<Todo[]>('currentTodos', [],
     { encode: JSON.stringify, decode:JSON.parse });
 
 onMount(lists, () => {
-    task(async () => {
-        loadingState.set('loading');
-        const allLists = await getAllLists();
-        lists.set(allLists);
+    getAllLists()
+    .then(async res => {
+        const data = await res;
 
-        if (allLists.length === 0) {
+        lists.set(data);
+
+        if (data.length === 0) {
             currentList.set({
                 list_id: "",
                 user_id: "",
@@ -62,23 +63,21 @@ onMount(lists, () => {
             });
             currentTodos.set([]);
         } else {
-            currentList.set(allLists[0]);
-            currentTodos.set(allLists[0].todos);
+            currentList.set(data[0]);
+            currentTodos.set(data[0].todos);
         }
-
-        console.log(lists.get());
-        console.log(currentList.get());
-        console.log(currentTodos.get());
-
         loadingState.set('loaded');
-    })
+    });
+
+    return () => {
+        loadingState.set('loading');
+    }
 });
 
 /* 
  *  HELPER FUNCTIONS
  */
 export function updateCurrent(list: List) {
-    console.log(list);
     currentList.set(list);
     currentTodos.set(list.todos);
 }
@@ -175,7 +174,7 @@ export async function getAllTodos(): Promise<Todo[]> {
 }
 
 export async function addTodo(todo: NewTodo): Promise<Todo> {
-    const url = 'http://localhost:5001/api/todos';
+    const url = 'http://localhost:5001/api/todos/';
 
     try {
         const res: AxiosResponse<Todo> = await axios.post(url, todo);
@@ -197,7 +196,6 @@ export async function removeTodo(todo: Todo): Promise<Todo> {
         const res: AxiosResponse<Todo> = await axios.delete(url)
 
         currentList.get().todos = currentTodos.get().filter((i) => i.todo_id !== todo.todo_id);
-        console.log(currentList.get());
         updateClient(currentList.get());
 
         return res.data;
@@ -228,3 +226,19 @@ export async function flipCompleteTodo(todo: Todo): Promise<Todo> {
         throw err;
     }
 }
+
+lists.listen(l => {
+    console.log(l);
+})
+
+currentList.listen(cl => {
+    console.log(cl);
+})
+
+currentTodos.listen(ct => {
+    console.log(ct);
+})
+
+loadingState.listen(ls => {
+    console.log(ls);
+})

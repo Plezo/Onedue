@@ -13,25 +13,29 @@ export default function List() {
     const $loadingState = useStore(loadingState);
 
     const handleAddTodo = async (e) => {
+        e.preventDefault();
         const todo = {
             list_id: $currentList.list_id,
             user_id: 'e3402a58-496e-4b5d-82a3-7481c0790dca',
             name: newTodoName,
         }
 
-        await addTodo(todo);
-
+        try {
+            await addTodo(todo);
+        } catch(err) {
+            console.log(err);
+        }
+        
         setNewTodoName('');
-        e.preventDefault();
     }
 
     if ($loadingState !== 'loaded')
-        return <p>LOADING!</p>;
+        return <div>LOADING!</div>;
 
     return (
         <div className='flex flex-col text-white gap-4 mt-8'>
             <h1 className='text-4xl'>{$currentList.list_name}</h1>
-            <form onSubmit={handleAddTodo}>
+            <form onSubmit={(e) => handleAddTodo(e)}>
                 <input
                 className='bg-slate-800 py-2 px-4 rounded-lg'
                 placeholder='Add task to "Inbox"' 
@@ -39,7 +43,6 @@ export default function List() {
                 value={newTodoName}
                 onChange={(e) => setNewTodoName(e.target.value)} />
             </form>
-
             {
                 $currentTodos.length === 0 ? 
                 <p>No todos</p> :
