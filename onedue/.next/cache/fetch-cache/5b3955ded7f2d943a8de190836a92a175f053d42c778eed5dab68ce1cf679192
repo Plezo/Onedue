@@ -1,0 +1,1 @@
+{"kind":"FETCH","data":{"headers":{"connection":"close","content-encoding":"gzip","content-type":"application/json; charset=utf-8","date":"Sun, 28 May 2023 04:16:05 GMT","etag":"\"38jmpejbxv2\"","transfer-encoding":"chunked","vary":"Accept-Encoding"},"body":"W10=","status":200,"tags":["/page"]},"revalidate":31536000}

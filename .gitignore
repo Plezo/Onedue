@@ -6,6 +6,18 @@ dist/
 
 # dependencies
 node_modules/
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
 
 # logs
 npm-debug.log*
@@ -15,7 +27,16 @@ pnpm-debug.log*
 
 # environment variables
 .env
+.env*.local
 .env.production
 
-# macOS-specific files
+# misc
 .DS_Store
+*.pem
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

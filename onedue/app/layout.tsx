@@ -1,3 +1,4 @@
+import Sidebar from './components/Sidebar'
 import './globals.css'
 import Providers from './util/providers'
 import { Inter } from 'next/font/google'
@@ -15,12 +16,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>
-          {children}
-        </Providers>
-      </body>
-    </html>
+    <Providers>
+      <html lang="en">
+        <body className={` ${inter.className}
+        flex min-h-screen items-center justify-evenly p-24
+        `}>
+            <Sidebar />
+            {children}
+        </body>
+      </html>
+    </Providers>
   )
 }

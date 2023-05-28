@@ -1,6 +1,3 @@
-import Image from 'next/image'
-import Sidebar from './components/Sidebar'
-
 import getQueryClient from './util/getQueryClient'
 import { dehydrate } from '@tanstack/react-query'
 import Hydrate from './util/HydrateClient'
@@ -23,7 +20,7 @@ interface List {
 }
 
 const getLists = async () => {
-	const url = 'http://localhost:5001/api/lists';
+  const url = 'http://localhost:3000/api/lists'
 	const res = await fetch(url);
 	const lists: List[] = await res.json();
 
@@ -36,10 +33,10 @@ export default async function Home() {
 	const dehydratedState = dehydrate(queryClient);
 
   return (
-	<main className="flex min-h-screen items-center justify-between p-24">
-		<Hydrate state={dehydratedState}>
-			<Sidebar />
-		</Hydrate>
+    <main>
+      <Hydrate state={dehydratedState}>
+        <h1>Inbox will be here</h1>
+      </Hydrate>
     </main>
   )
 }
