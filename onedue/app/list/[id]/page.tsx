@@ -37,7 +37,7 @@ export default async function List(list_id: string) {
   return (
     <main>
       <Hydrate state={dehydratedState}>
-        <TodoList list_id={list_id}/>
+        <TodoList list_id={list_id} id={''} user_id={''} name={''}/>
       </Hydrate>
     </main>
   )

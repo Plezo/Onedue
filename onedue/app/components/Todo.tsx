@@ -16,6 +16,8 @@ interface Todo {
 export default function Todo(todo: Todo) {
     const [completed, setCompleted] = useState(todo.completed);
 
+    // console.log(todo, "test")
+
     const handleComplete = async (e: MouseEvent) => {
         const url = `http://localhost:3000/api/todos/${todo.id}`
         const res = await fetch(url, {
@@ -34,7 +36,6 @@ export default function Todo(todo: Todo) {
     }
 
     const handleDelete = async (e: MouseEvent) => {
-
         const url = `http://localhost:3000/api/todos/${todo.id}`
         const res = await fetch(url, {
             method: 'DELETE',

@@ -21,7 +21,7 @@ export default function RootLayout({
         <body className={` ${inter.className}
         flex min-h-screen items-center justify-evenly p-24
         `}>
-            <Sidebar />
+            {/* <Sidebar /> */}
             {children}
         </body>
       </html>

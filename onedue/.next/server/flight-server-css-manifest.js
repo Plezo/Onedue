@@ -13,6 +13,10 @@ self.__RSC_CSS_MANIFEST={
     "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\list\\[id]\\page": [
       "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\globals.css",
       "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\next@13.4.4_biqbaboplfbrettd7655fr4n2y\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
+    ],
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\dashboard\\page": [
+      "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\globals.css",
+      "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\next@13.4.4_biqbaboplfbrettd7655fr4n2y\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
     ]
   }
 }

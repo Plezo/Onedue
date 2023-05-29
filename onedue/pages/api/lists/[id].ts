@@ -10,6 +10,9 @@ export default async function handler(
             const list = await prisma.list.findUnique({
                 where: {
                     id: String(req.query.id)
+                },
+                include: {
+                    todos: true
                 }
             });
 

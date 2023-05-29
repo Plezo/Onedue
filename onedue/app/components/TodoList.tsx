@@ -22,9 +22,9 @@ interface List {
 }
 
 const getList = async (id: string) => {
-  const url = `http://localhost:3000/api/lists/${id}`
-	const res = await fetch(url);
-	const list: List = await res.json();
+    const url = `http://localhost:3000/api/lists/${id}`
+    const res = await fetch(url);
+    const list: List = await res.json();
 
 	return list;
 }
@@ -34,7 +34,9 @@ export default function TodoList(id: string) {
         queryKey: ['list'],
         queryFn: () => getList(id)
     });
-    
+
+    console.log(data, "abcdef")
+
     return (
         <ul>
         {

@@ -230,80 +230,62 @@
         "async": false
       }
     },
-    "(app-client)/./app/components/Sidebar.tsx": {
+    "(app-client)/./app/util/HydrateClient.tsx": {
       "*": {
-        "id": "(sc_client)/./app/components/Sidebar.tsx",
+        "id": "(sc_client)/./app/util/HydrateClient.tsx",
         "name": "*",
         "chunks": [
-          "app/layout:static/chunks/app/layout.js"
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
         ],
         "async": false
       },
       "": {
-        "id": "(sc_client)/./app/components/Sidebar.tsx",
+        "id": "(sc_client)/./app/util/HydrateClient.tsx",
         "name": "",
         "chunks": [
-          "app/layout:static/chunks/app/layout.js"
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
         ],
         "async": false
       },
       "default": {
-        "id": "(sc_client)/./app/components/Sidebar.tsx",
+        "id": "(sc_client)/./app/util/HydrateClient.tsx",
         "name": "default",
         "chunks": [
-          "app/layout:static/chunks/app/layout.js"
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
         ],
         "async": false
       }
     },
-    "(app-client)/./app/util/providers.jsx": {
+    "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs": {
       "*": {
-        "id": "(sc_client)/./app/util/providers.jsx",
+        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
         "name": "*",
         "chunks": [
-          "app/layout:static/chunks/app/layout.js"
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
         ],
         "async": false
       },
       "": {
-        "id": "(sc_client)/./app/util/providers.jsx",
+        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
         "name": "",
         "chunks": [
-          "app/layout:static/chunks/app/layout.js"
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
         ],
         "async": false
       },
-      "default": {
-        "id": "(sc_client)/./app/util/providers.jsx",
-        "name": "default",
+      "Hydrate": {
+        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
+        "name": "Hydrate",
         "chunks": [
-          "app/layout:static/chunks/app/layout.js"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./node_modules/.pnpm/next@13.4.4_biqbaboplfbrettd7655fr4n2y/node_modules/next/dist/client/link.js": {
-      "*": {
-        "id": "(sc_client)/./node_modules/.pnpm/next@13.4.4_biqbaboplfbrettd7655fr4n2y/node_modules/next/dist/client/link.js",
-        "name": "*",
-        "chunks": [
-          "app/layout:static/chunks/app/layout.js"
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
         ],
         "async": false
       },
-      "": {
-        "id": "(sc_client)/./node_modules/.pnpm/next@13.4.4_biqbaboplfbrettd7655fr4n2y/node_modules/next/dist/client/link.js",
-        "name": "",
+      "useHydrate": {
+        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
+        "name": "useHydrate",
         "chunks": [
-          "app/layout:static/chunks/app/layout.js"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./node_modules/.pnpm/next@13.4.4_biqbaboplfbrettd7655fr4n2y/node_modules/next/dist/client/link.js",
-        "name": "default",
-        "chunks": [
-          "app/layout:static/chunks/app/layout.js"
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
         ],
         "async": false
       }
@@ -418,118 +400,6 @@
         "async": false
       }
     },
-    "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs": {
-      "*": {
-        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
-        "name": "*",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
-        "name": "",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      },
-      "useMutation": {
-        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
-        "name": "useMutation",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs": {
-      "*": {
-        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
-        "name": "*",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
-        "name": "",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      },
-      "useQuery": {
-        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
-        "name": "useQuery",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./app/util/HydrateClient.tsx": {
-      "*": {
-        "id": "(sc_client)/./app/util/HydrateClient.tsx",
-        "name": "*",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./app/util/HydrateClient.tsx",
-        "name": "",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./app/util/HydrateClient.tsx",
-        "name": "default",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs": {
-      "*": {
-        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
-        "name": "*",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
-        "name": "",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      },
-      "Hydrate": {
-        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
-        "name": "Hydrate",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      },
-      "useHydrate": {
-        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
-        "name": "useHydrate",
-        "chunks": [
-          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-        ],
-        "async": false
-      }
-    },
     "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/reactBatchedUpdates.mjs": {
       "*": {
         "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/reactBatchedUpdates.mjs",
@@ -634,6 +504,32 @@
         "async": false
       }
     },
+    "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs": {
+      "*": {
+        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
+        "name": "*",
+        "chunks": [
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
+        "name": "",
+        "chunks": [
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+        ],
+        "async": false
+      },
+      "useMutation": {
+        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
+        "name": "useMutation",
+        "chunks": [
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+        ],
+        "async": false
+      }
+    },
     "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQueries.mjs": {
       "*": {
         "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQueries.mjs",
@@ -660,6 +556,58 @@
         "async": false
       }
     },
+    "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs": {
+      "*": {
+        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
+        "name": "*",
+        "chunks": [
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
+        "name": "",
+        "chunks": [
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+        ],
+        "async": false
+      },
+      "useQuery": {
+        "id": "(sc_client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
+        "name": "useQuery",
+        "chunks": [
+          "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./app/util/providers.jsx": {
+      "*": {
+        "id": "(sc_client)/./app/util/providers.jsx",
+        "name": "*",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./app/util/providers.jsx",
+        "name": "",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/util/providers.jsx",
+        "name": "default",
+        "chunks": [
+          "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      }
+    },
     "(app-client)/./app/components/Todo.tsx": {
       "*": {
         "id": "(sc_client)/./app/components/Todo.tsx",
@@ -682,6 +630,32 @@
         "name": "default",
         "chunks": [
           "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./app/dashboard/page.tsx": {
+      "*": {
+        "id": "(sc_client)/./app/dashboard/page.tsx",
+        "name": "*",
+        "chunks": [
+          "app/dashboard/page:static/chunks/app/dashboard/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./app/dashboard/page.tsx",
+        "name": "",
+        "chunks": [
+          "app/dashboard/page:static/chunks/app/dashboard/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/dashboard/page.tsx",
+        "name": "default",
+        "chunks": [
+          "app/dashboard/page:static/chunks/app/dashboard/page.js"
         ],
         "async": false
       }
@@ -1366,113 +1340,59 @@
       ],
       "async": false
     },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\globals.css#": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/layout.css"
-      ]
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\next@13.4.4_biqbaboplfbrettd7655fr4n2y\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}#": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/layout.css"
-      ]
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\components\\Sidebar.tsx": {
-      "id": "(app-client)/./app/components/Sidebar.tsx",
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\HydrateClient.tsx": {
+      "id": "(app-client)/./app/util/HydrateClient.tsx",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\components\\Sidebar.tsx#": {
-      "id": "(app-client)/./app/components/Sidebar.tsx",
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\HydrateClient.tsx#": {
+      "id": "(app-client)/./app/util/HydrateClient.tsx",
       "name": "",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\components\\Sidebar.tsx#default": {
-      "id": "(app-client)/./app/components/Sidebar.tsx",
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\HydrateClient.tsx#default": {
+      "id": "(app-client)/./app/util/HydrateClient.tsx",
       "name": "default",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\providers.jsx": {
-      "id": "(app-client)/./app/util/providers.jsx",
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\Hydrate.mjs": {
+      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\providers.jsx#": {
-      "id": "(app-client)/./app/util/providers.jsx",
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\Hydrate.mjs#": {
+      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
       "name": "",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\providers.jsx#default": {
-      "id": "(app-client)/./app/util/providers.jsx",
-      "name": "default",
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\Hydrate.mjs#Hydrate": {
+      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
+      "name": "Hydrate",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\next@13.4.4_biqbaboplfbrettd7655fr4n2y\\node_modules\\next\\dist\\client\\link.js": {
-      "id": "(app-client)/./node_modules/.pnpm/next@13.4.4_biqbaboplfbrettd7655fr4n2y/node_modules/next/dist/client/link.js",
-      "name": "*",
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\Hydrate.mjs#useHydrate": {
+      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
+      "name": "useHydrate",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\next@13.4.4_biqbaboplfbrettd7655fr4n2y\\node_modules\\next\\dist\\esm\\client\\link.js": {
-      "id": "(app-client)/./node_modules/.pnpm/next@13.4.4_biqbaboplfbrettd7655fr4n2y/node_modules/next/dist/client/link.js",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\next@13.4.4_biqbaboplfbrettd7655fr4n2y\\node_modules\\next\\dist\\client\\link.js#": {
-      "id": "(app-client)/./node_modules/.pnpm/next@13.4.4_biqbaboplfbrettd7655fr4n2y/node_modules/next/dist/client/link.js",
-      "name": "",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\next@13.4.4_biqbaboplfbrettd7655fr4n2y\\node_modules\\next\\dist\\esm\\client\\link.js#": {
-      "id": "(app-client)/./node_modules/.pnpm/next@13.4.4_biqbaboplfbrettd7655fr4n2y/node_modules/next/dist/client/link.js",
-      "name": "",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\next@13.4.4_biqbaboplfbrettd7655fr4n2y\\node_modules\\next\\dist\\client\\link.js#default": {
-      "id": "(app-client)/./node_modules/.pnpm/next@13.4.4_biqbaboplfbrettd7655fr4n2y/node_modules/next/dist/client/link.js",
-      "name": "default",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\next@13.4.4_biqbaboplfbrettd7655fr4n2y\\node_modules\\next\\dist\\esm\\client\\link.js#default": {
-      "id": "(app-client)/./node_modules/.pnpm/next@13.4.4_biqbaboplfbrettd7655fr4n2y/node_modules/next/dist/client/link.js",
-      "name": "default",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
       ],
       "async": false
     },
@@ -1580,110 +1500,6 @@
       ],
       "async": false
     },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useMutation.mjs": {
-      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
-      "name": "*",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useMutation.mjs#": {
-      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
-      "name": "",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useMutation.mjs#useMutation": {
-      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
-      "name": "useMutation",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useQuery.mjs": {
-      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
-      "name": "*",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useQuery.mjs#": {
-      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
-      "name": "",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useQuery.mjs#useQuery": {
-      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
-      "name": "useQuery",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\HydrateClient.tsx": {
-      "id": "(app-client)/./app/util/HydrateClient.tsx",
-      "name": "*",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\HydrateClient.tsx#": {
-      "id": "(app-client)/./app/util/HydrateClient.tsx",
-      "name": "",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\HydrateClient.tsx#default": {
-      "id": "(app-client)/./app/util/HydrateClient.tsx",
-      "name": "default",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\Hydrate.mjs": {
-      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
-      "name": "*",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\Hydrate.mjs#": {
-      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
-      "name": "",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\Hydrate.mjs#Hydrate": {
-      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
-      "name": "Hydrate",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\Hydrate.mjs#useHydrate": {
-      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/Hydrate.mjs",
-      "name": "useHydrate",
-      "chunks": [
-        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
-      ],
-      "async": false
-    },
     "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\reactBatchedUpdates.mjs": {
       "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/reactBatchedUpdates.mjs",
       "name": "*",
@@ -1780,6 +1596,30 @@
       ],
       "async": false
     },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useMutation.mjs": {
+      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
+      "name": "*",
+      "chunks": [
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useMutation.mjs#": {
+      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
+      "name": "",
+      "chunks": [
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useMutation.mjs#useMutation": {
+      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useMutation.mjs",
+      "name": "useMutation",
+      "chunks": [
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+      ],
+      "async": false
+    },
     "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useQueries.mjs": {
       "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQueries.mjs",
       "name": "*",
@@ -1804,6 +1644,68 @@
       ],
       "async": false
     },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useQuery.mjs": {
+      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
+      "name": "*",
+      "chunks": [
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useQuery.mjs#": {
+      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
+      "name": "",
+      "chunks": [
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y\\node_modules\\@tanstack\\react-query\\build\\lib\\useQuery.mjs#useQuery": {
+      "id": "(app-client)/./node_modules/.pnpm/@tanstack+react-query@4.29.7_biqbaboplfbrettd7655fr4n2y/node_modules/@tanstack/react-query/build/lib/useQuery.mjs",
+      "name": "useQuery",
+      "chunks": [
+        "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\globals.css#": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/layout.css"
+      ]
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\node_modules\\.pnpm\\next@13.4.4_biqbaboplfbrettd7655fr4n2y\\node_modules\\next\\font\\google\\target.css?{\"path\":\"app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}#": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/layout.css"
+      ]
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\providers.jsx": {
+      "id": "(app-client)/./app/util/providers.jsx",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\providers.jsx#": {
+      "id": "(app-client)/./app/util/providers.jsx",
+      "name": "",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\util\\providers.jsx#default": {
+      "id": "(app-client)/./app/util/providers.jsx",
+      "name": "default",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
     "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\components\\Todo.tsx": {
       "id": "(app-client)/./app/components/Todo.tsx",
       "name": "*",
@@ -1825,6 +1727,30 @@
       "name": "default",
       "chunks": [
         "app/list/[id]/page:static/chunks/app/list/[id]/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\dashboard\\page.tsx": {
+      "id": "(app-client)/./app/dashboard/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/dashboard/page:static/chunks/app/dashboard/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\dashboard\\page.tsx#": {
+      "id": "(app-client)/./app/dashboard/page.tsx",
+      "name": "",
+      "chunks": [
+        "app/dashboard/page:static/chunks/app/dashboard/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Plezo\\Documents\\Projects\\OneDue\\onedue\\app\\dashboard\\page.tsx#default": {
+      "id": "(app-client)/./app/dashboard/page.tsx",
+      "name": "default",
+      "chunks": [
+        "app/dashboard/page:static/chunks/app/dashboard/page.js"
       ],
       "async": false
     }

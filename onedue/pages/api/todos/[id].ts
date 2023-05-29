@@ -32,17 +32,14 @@ export default async function handler(
             return res.status(500).json(err);
         }
     } else if (req.method === 'PATCH') {
-        if (req.body !== true || req.body !== false)
-            return res.status(500).send({ error: "Must be true or false" })
+        const data = JSON.parse(req.body);
 
         try {
             const todo = await prisma.todo.update({
                 where: {
                     id: String(req.query.id)
                 },
-                data: {
-                    completed: req.body
-                }
+                data: data
             });
             return res.status(200).json(todo);
         } catch (err: any) {

@@ -1,0 +1,291 @@
+'use client'
+
+import { useEffect, useState } from "react"
+import { Icon } from '@iconify/react'
+import { Todo, List } from '../../types'
+
+export default function Dashboard() {
+
+    const [lists, setLists] = useState<List[]>([])
+    const [loading, setLoading] = useState<Boolean>(true)
+    const [error, setError] = useState(null)
+
+    const [currentList, setCurrentList] = useState<List>({
+        id: '',
+        user_id: '',
+        name: '',
+        todos: []
+    })
+
+    const [newListName, setNewListName] = useState<string>('newList')
+    const [newTodoName, setNewTodoName] = useState<string>('newTodo')
+
+    const fetchLists = async () => {
+        const res = await fetch('/api/lists')
+        const data: List[] = await res.json()
+        return data
+    }
+
+    const addList = async () => {
+
+        const newList = {
+            user_id: 'cli71sdou0000356indwgdctv',
+            name: newListName,
+            todos: []
+        }
+
+        const res = await fetch('/api/lists', {
+            method:'POST',
+            body: JSON.stringify(newList),
+        })
+
+        const list: List = await res.json()
+        setLists(lists => [...lists, list])
+
+        // setNewListName('')
+    }
+
+    const selectList = async (list: List) => {
+        const res = await fetch(`/api/lists/${list.id}`)
+        let selectedList: List = await res.json()
+        
+        if (!selectedList.todos)
+            selectedList.todos = []
+
+        setCurrentList(selectedList);
+    }
+
+    const deleteList = async (selectedList: List) => {
+
+        if (selectedList.id === currentList.id) {
+            setCurrentList({
+                id: '',
+                user_id: '',
+                name: '',
+                todos: []
+            })
+        }
+
+        const res = await fetch(`/api/lists/${selectedList.id}`, {
+            method: 'DELETE',
+        })
+
+        const deletedList: List = await res.json()
+
+        setLists(lists.filter((list) => list.id !== deletedList.id))
+    }
+
+    const addTodo = async () => {
+
+        const newTodo = {
+            user_id: 'cli71sdou0000356indwgdctv',
+            list_id: currentList.id,
+            name: newTodoName
+        }
+
+        const res = await fetch('/api/todos', {
+            method: 'POST',
+            body: JSON.stringify(newTodo),
+        })
+
+        const todo: Todo = await res.json()
+
+        setCurrentList(currentList => ({
+            ...currentList,
+            todos: [...currentList.todos, todo]
+        }))
+
+        setLists(lists.map((list) => {
+            if (list.id === currentList.id)
+                return currentList
+            return list
+        }))
+
+        // setNewTodoName('')
+    }
+
+    const completeTodo = async (todo: Todo) => {
+        const res = await fetch(`/api/todos/${todo.id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({ completed: !todo.completed })
+        })
+
+        const updatedTodo: Todo = await res.json()
+
+        setCurrentList(currentList => ({
+            ...currentList,
+            todos: currentList.todos.map((i) => {
+                if (i.id === updatedTodo.id)
+                    return updatedTodo
+                return i
+            })
+        }))
+
+        setLists(lists.map((list) => {
+            if (list.id === currentList.id)
+                return currentList
+            return list
+        }))
+    }
+
+    const deleteTodo = async (todo: Todo) => {
+        const res = await fetch(`/api/todos/${todo.id}`, {
+            method: 'DELETE'
+        })
+
+        const deletedTodo: Todo = await res.json()
+
+        setCurrentList(currentList => ({
+            ...currentList,
+            todos: currentList.todos.filter((todo) => todo.id !== deletedTodo.id)
+        }))
+
+        setLists(lists.map((list) => {
+            if (list.id === currentList.id)
+                return currentList
+            return list
+        }))
+    }
+
+    useEffect(() => {
+        fetchLists()
+        .then((data) => {
+            setLists(data)
+            setLoading(false)
+        })
+        .catch((err) => {
+            setError(err)
+            setLoading(false)
+        })
+    }, [])
+
+    if (loading) return <p>Loading...</p>
+    if (error) return <p>Error: {error}</p>
+
+    return (
+        <main
+        className='
+        flex gap-8 w-full justify-evenly
+        '>
+            <div
+            className='
+            w-1/12
+            '>
+                <div className='
+                flex justify-between
+                '>
+                    <h1>Lists</h1>
+                    <button>
+                        <Icon 
+                        className='
+                        w-6 h-6
+                        ' 
+                        icon="carbon:add"
+                        onClick={() => addList()}
+                        />
+                    </button>
+                </div>
+                <ul
+                className='
+                flex flex-col
+                mt-6 gap-4
+                '>
+                    {lists.map((list: List) => 
+                        <li 
+                        key={list.id}
+                        className='
+                        hover:bg-zinc-500
+                        active:bg-zinc-600
+                        '
+                        >
+                            <button
+                            className='
+                            w-full flex justify-between items-center
+                            '
+                            onClick={() => selectList(list)}
+                            >
+                                <p>{list.name}</p>
+                                <Icon 
+                                className='
+                                h-4 w-4
+                                text-zinc-50
+                                hover:text-zinc-400
+                                active:text-zinc-500
+                                ' 
+                                icon="carbon:close"
+                                onClick={() => deleteList(list)}
+                                />
+                            </button>
+                        </li>
+                    )}
+                </ul>
+            </div> 
+
+            {
+                currentList.id === '' ?
+                <p>No list selected</p> :
+                <div
+                className='
+                w-1/12
+                '>
+                    <div 
+                    className='
+                    flex justify-between
+                    '>
+                        <h1>{currentList.name}</h1>
+                        <button>
+                            <Icon 
+                            className='
+                            w-6 h-6
+                            ' 
+                            icon="carbon:add"
+                            onClick={() => addTodo()}
+                            />
+                        </button>
+                    </div>
+                    <ul
+                    className='
+                    flex flex-col
+                    mt-6 gap-4
+                    '>
+                        {currentList.todos.map((todo: Todo) => 
+                        <li 
+                        key={todo.id}
+                        className='
+                        flex justify-evenly items-center
+                        hover:bg-zinc-500
+                        active:bg-zinc-600
+                        '>
+                            <button>
+                                { todo.completed ?
+                                    <Icon 
+                                    icon='carbon:checkbox-checked'
+                                    className='text-blue-400'
+                                    onClick={() => completeTodo(todo)}
+                                    /> :
+                                    <Icon 
+                                    icon="carbon:checkbox"
+                                    className="text-blue-400"
+                                    onClick={() => completeTodo(todo)}
+                                    />
+                                }
+                            </button>
+                            <p>{todo.name}</p>
+                            <Icon 
+                            className='
+                            h-4 w-4
+                            text-zinc-50
+                            hover:text-zinc-400
+                            active:text-zinc-500
+                            ' 
+                            icon="carbon:close"
+                            onClick={() => deleteTodo(todo)}
+                            />
+                        </li>
+                        )}
+                    </ul>
+                </div>
+            }
+        </main>
+    )
+}
