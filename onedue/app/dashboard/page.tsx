@@ -26,23 +26,32 @@ export default function Dashboard() {
         return data
     }
 
+    // not sure how to optimistically update
     const addList = async () => {
 
-        const newList = {
-            user_id: 'cli71sdou0000356indwgdctv',
-            name: newListName,
-            todos: []
+        const prevState: List[] = lists
+
+        try {
+            const newList = {
+                user_id: 'cli71sdou0000356indwgdctv',
+                name: newListName,
+                todos: []
+            }
+    
+            const res = await fetch('/api/lists', {
+                method:'POST',
+                body: JSON.stringify(newList),
+            })
+
+            if (res.status === 500)
+                throw await res.json()
+    
+            const list: List = await res.json()
+            setLists(lists => [...lists, list])
+
+        } catch (err) {
+            setLists(prevState)
         }
-
-        const res = await fetch('/api/lists', {
-            method:'POST',
-            body: JSON.stringify(newList),
-        })
-
-        const list: List = await res.json()
-        setLists(lists => [...lists, list])
-
-        // setNewListName('')
     }
 
     const selectList = async (list: List) => {
@@ -57,94 +66,159 @@ export default function Dashboard() {
 
     const deleteList = async (selectedList: List) => {
 
-        if (selectedList.id === currentList.id) {
-            setCurrentList({
-                id: '',
-                user_id: '',
-                name: '',
-                todos: []
+        const prevState: List[] = lists
+
+        try {
+            if (selectedList.id === currentList.id) {
+                setCurrentList({
+                    id: '',
+                    user_id: '',
+                    name: '',
+                    todos: []
+                })
+            }
+
+            setLists(lists.filter((list) => list.id !== selectedList.id))
+
+            const res = await fetch(`/api/lists/${selectedList.id}`, {
+                method: 'DELETE',
             })
+
+            if (res.status === 500)
+                throw await res.json()
+
+        } catch (err) {
+            setLists(prevState)
         }
-
-        const res = await fetch(`/api/lists/${selectedList.id}`, {
-            method: 'DELETE',
-        })
-
-        const deletedList: List = await res.json()
-
-        setLists(lists.filter((list) => list.id !== deletedList.id))
     }
 
+    // not sure how to optimistically do this
     const addTodo = async () => {
 
-        const newTodo = {
-            user_id: 'cli71sdou0000356indwgdctv',
-            list_id: currentList.id,
-            name: newTodoName
+        const prevState: List = currentList
+
+        try {
+            const newTodo = {
+                // id: '',
+                user_id: 'cli71sdou0000356indwgdctv',
+                list_id: currentList.id,
+                name: newTodoName
+            }
+
+            // optimistically update
+            // setCurrentList(currentList => ({
+            //     ...currentList,
+            //     todos: [...currentList.todos, newTodo]
+            // }))
+            
+            // send post request
+            const res = await fetch('/api/todos', {
+                method: 'POST',
+                body: JSON.stringify(newTodo),
+            })
+
+            // revert state if failed
+            if (res.status === 500)
+                throw await res.json()
+
+            const todo: Todo = await res.json()
+
+            setCurrentList(currentList => ({
+                ...currentList,
+                todos: [...currentList.todos, todo]
+            }))
+
+            // assign an id to the new todo
+            // TODO: consider generating UUID on client side
+            // setCurrentList(currentList => ({
+            //     ...currentList,
+            //     todos: currentList.todos.map((i) => {
+            //         if (i.id === '')
+            //             return todo
+            //         return i
+            //     })
+            // }))
+
+            // update remaining data to match changes
+            setLists(lists.map((list) => {
+                if (list.id === currentList.id)
+                    return currentList
+                return list
+            }))
+
+        } catch (err) {
+            setCurrentList(prevState)
         }
-
-        const res = await fetch('/api/todos', {
-            method: 'POST',
-            body: JSON.stringify(newTodo),
-        })
-
-        const todo: Todo = await res.json()
-
-        setCurrentList(currentList => ({
-            ...currentList,
-            todos: [...currentList.todos, todo]
-        }))
-
-        setLists(lists.map((list) => {
-            if (list.id === currentList.id)
-                return currentList
-            return list
-        }))
-
-        // setNewTodoName('')
     }
 
     const completeTodo = async (todo: Todo) => {
-        const res = await fetch(`/api/todos/${todo.id}`, {
-            method: 'PATCH',
-            body: JSON.stringify({ completed: !todo.completed })
-        })
 
-        const updatedTodo: Todo = await res.json()
+        const prevState: List = currentList
 
-        setCurrentList(currentList => ({
-            ...currentList,
-            todos: currentList.todos.map((i) => {
-                if (i.id === updatedTodo.id)
-                    return updatedTodo
-                return i
+        try {
+            // optimistic update
+            todo.completed = !todo.completed
+            setCurrentList(currentList => ({
+                ...currentList,
+                todos: currentList.todos.map((i) => {
+                    if (i.id === todo.id)
+                        return todo
+                    return i
+                })
+            }))
+
+            // send patch request
+            const res = await fetch(`/api/todos/${todo.id}`, {
+                method: 'PATCH',
+                body: JSON.stringify({ completed: todo.completed })
             })
-        }))
 
-        setLists(lists.map((list) => {
-            if (list.id === currentList.id)
-                return currentList
-            return list
-        }))
+            // revert state if failed
+            if (res.status === 500)
+                throw await res.json()
+    
+            // update remaining data to match changes
+            setLists(lists.map((list) => {
+                if (list.id === currentList.id)
+                    return currentList
+                return list
+            }))
+            
+        } catch (err) {
+            setCurrentList(prevState)
+        }
     }
 
     const deleteTodo = async (todo: Todo) => {
-        const res = await fetch(`/api/todos/${todo.id}`, {
-            method: 'DELETE'
-        })
 
-        const deletedTodo: Todo = await res.json()
+        const prevState: List = currentList
 
-        setCurrentList(currentList => ({
-            ...currentList,
-            todos: currentList.todos.filter((todo) => todo.id !== deletedTodo.id)
-        }))
+        try {
+            // optimistically update
+            setCurrentList(currentList => ({
+                ...currentList,
+                todos: currentList.todos.filter((i) => i.id !== todo.id)
+            }))
 
-        setLists(lists.map((list) => {
-            if (list.id === currentList.id)
-                return currentList
-            return list
-        }))
+            // send delete request
+            const res = await fetch(`/api/todos/${todo.id}`, {
+                method: 'DELETE'
+            })
+
+            // revert state if failed
+            if (res.status === 500)
+                throw await res.json()
+
+            // update remaining data to match changes
+            setLists(lists.map((list) => {
+                if (list.id === currentList.id)
+                    return currentList
+                return list
+            }))
+
+        } catch (err) {
+            setCurrentList(prevState)
+        }
     }
 
     useEffect(() => {
