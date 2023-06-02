@@ -18,7 +18,7 @@ export default function Dashboard() {
     })
 
     const [newListName, setNewListName] = useState<string>('newList')
-    const [newTodoName, setNewTodoName] = useState<string>('newTodo')
+    const [newTodoName, setNewTodoName] = useState<string>('')
 
     const fetchLists = async () => {
         const res = await fetch('/api/lists')
@@ -27,7 +27,8 @@ export default function Dashboard() {
     }
 
     // not sure how to optimistically update
-    const addList = async () => {
+    const addList = async (e: any) => {
+        e.preventDefault()
 
         const prevState: List[] = lists
 
@@ -37,6 +38,8 @@ export default function Dashboard() {
                 name: newListName,
                 todos: []
             }
+
+            setNewListName('')
     
             const res = await fetch('/api/lists', {
                 method:'POST',
@@ -93,7 +96,8 @@ export default function Dashboard() {
     }
 
     // not sure how to optimistically do this
-    const addTodo = async () => {
+    const addTodo = async (e: any) => {
+        e.preventDefault();
 
         const prevState: List = currentList
 
@@ -104,6 +108,8 @@ export default function Dashboard() {
                 list_id: currentList.id,
                 name: newTodoName
             }
+
+            setNewTodoName('')
 
             // optimistically update
             // setCurrentList(currentList => ({
@@ -243,7 +249,7 @@ export default function Dashboard() {
         '>
             <div
             className='
-            w-1/12
+            w-2/12
             '>
                 <div className='
                 flex justify-between
@@ -255,10 +261,17 @@ export default function Dashboard() {
                         w-6 h-6
                         ' 
                         icon="carbon:add"
-                        onClick={() => addList()}
                         />
                     </button>
                 </div>
+                <form onSubmit={(e: any) => addList(e)}>
+                    <input 
+                    className='w-full text-black text-sm px-2 py-1'
+                    value={newListName}
+                    onChange={(e) => setNewListName(e.target.value)}
+                    > 
+                    </input>
+                </form>
                 <ul
                 className='
                 flex flex-col
@@ -300,7 +313,7 @@ export default function Dashboard() {
                 <p>No list selected</p> :
                 <div
                 className='
-                w-1/12
+                w-2/12
                 '>
                     <div 
                     className='
@@ -313,10 +326,17 @@ export default function Dashboard() {
                             w-6 h-6
                             ' 
                             icon="carbon:add"
-                            onClick={() => addTodo()}
                             />
                         </button>
                     </div>
+                    <form onSubmit={(e: any) => addTodo(e)}>
+                        <input 
+                        className='w-full text-black text-sm px-2 py-1'
+                        value={newTodoName}
+                        onChange={(e) => setNewTodoName(e.target.value)}
+                        > 
+                        </input>
+                    </form>
                     <ul
                     className='
                     flex flex-col
